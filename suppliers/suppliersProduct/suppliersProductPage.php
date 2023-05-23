@@ -33,7 +33,6 @@ if (!$conn)
     <tr>
         <th> Номер продукту</th>
         <th> Назва </th>
-        <th> Номер постачальника </th>
         <th> Назва </th>
     </tr>
     </thead>
@@ -45,13 +44,11 @@ if (!$conn)
         while ($row = mysqli_fetch_assoc($result)){
             $id_supplierProduct = $row['id_supplierProduct'];
             $supplierProductName = $row['supplierProductName'];
-            $id_supplier = $row['id_supplier'];
             $supplierName = $row['supplierName'];
             echo '
                         <tr>
                             <td>'.$id_supplierProduct.'</td>
                             <td>'.$supplierProductName.'</td>
-                            <td>'.$id_supplier.'</td>
                             <td>'.$supplierName.'</td>
                             <td><button><a href="editSupplierProduct.php?editid='.$id_supplierProduct.'">Редагувати</a></button></td>
                             <td><button><a href="deleteSupplierProduct.php?deleteid='.$id_supplierProduct.'">Видалити</a></button></td>
