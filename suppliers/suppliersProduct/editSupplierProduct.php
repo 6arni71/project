@@ -16,9 +16,7 @@ $sql2 = "SELECT * FROM suppliers_product WHERE id_supplierProduct = $id";
 $reslt = mysqli_query($conn, $sql2);
 $row = mysqli_fetch_assoc($reslt);
 $sPN = $row['supplierProductName'];
-$sIS = $row['id_supplier'];
 $sN = $row['supplierName'];
-
 
 if (isset($_POST['SUB'])){
     $suppProductName = $_POST['supplierProductName'];
