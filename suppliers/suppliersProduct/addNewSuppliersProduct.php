@@ -12,11 +12,11 @@ if (!$conn)
 if (isset($_POST['SUB'])){
     $id_supplierProduct = $_POST['id_supplierProduct'];
     $supplierProductName = $_POST['supplierProductName'];
-    $id_supplier = $_POST['id_supplier'];
+    $id_supplier = $_POST['idSupplier'];
     $supplierName = $_POST['supplierName'];
 
-    $asp = "INSERT INTO suppliers_product VALUES
-        ('$id_supplierProduct','$supplierProductName','$id_supplier','$supplierName')";
+    $asp = "INSERT INTO suppliers_product (supplierProductName, id_supplier, supplierName) VALUES
+        ('$supplierProductName','$id_supplier','$supplierName')";
 
     $result = mysqli_query($conn, $asp);
 }
@@ -39,12 +39,8 @@ if (isset($_POST['SUB'])){
 <div>
     <form method="post">
         <div>
-            <label> Номер продукту </label><br>
-            <input type="text" name="idProduct">
-        </div>
-        <div>
             <br><label> Назва продукту </label><br>
-            <input type="text" name="nameProduct">
+            <input type="text" name="supplierProductName">
         </div>
         <div>
             <br><label> Номер постачальника </label><br>
