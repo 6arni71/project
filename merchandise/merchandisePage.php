@@ -24,8 +24,7 @@ if (!$conn)
 
 <a href="../index.html">на головну</a><br><br>
 
-<td><button><a href="sellMerch.php?sellid='.$id_merch.'">продати товар</a></button></td>
-<td><button><a href="orderMerch.php?orderid='.$id_merch.'">замовити товар</a></button></td>
+<td><button><a href="orderNewMerch.php">замовити новий товар</a></button></td><br>
 
 <table class="table">
     <thead>
@@ -60,7 +59,9 @@ if (!$conn)
                             <td>'.$merchUnitPrice.'</td>
                             <td>'.$merchQuantity.'</td>
                             <td>'.$merch_id_order.'</td>
-                            <td>'.$merch_id_supplier.'</td>                          
+                            <td>'.$merch_id_supplier.'</td>      
+                            <td><button><a href="orderMerch.php?orderid='.$id_merch.'">замовити товар</a></button></td> 
+                            <td><button><a href="sellMerch.php?sellid='.$id_merch.'">продати товар</a></button></td>                                              
                         </tr>
                     ';
         }
