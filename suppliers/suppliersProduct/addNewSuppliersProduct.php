@@ -10,13 +10,10 @@ if (!$conn)
     die("Connection failed: " . mysqli_connect_error());
 
 if (isset($_POST['SUB'])){
-    $id_supplierProduct = $_POST['id_supplierProduct'];
     $supplierProductName = $_POST['supplierProductName'];
-    $id_supplier = $_POST['idSupplier'];
-    $supplierName = $_POST['supplierName'];
-
-    $asp = "INSERT INTO suppliers_product (supplierProductName, id_supplier, supplierName) VALUES
-        ('$supplierProductName','$id_supplier','$supplierName')";
+    $choseSupName = $_POST['choseSupName'];
+    $asp = "INSERT INTO suppliers_product (supplierProductName, supplierName) VALUES
+        ('$supplierProductName','$choseSupName')";
 
     $result = mysqli_query($conn, $asp);
 }
@@ -37,18 +34,14 @@ if (isset($_POST['SUB'])){
 <a href="suppliersProductPage.php">назад</a><br><br>
 
 <div>
-    <form method="post">
+    <form method="post" action="">
         <div>
-            <br><label> Назва продукту </label><br>
+            <label> Назва продукту </label><br>
             <input type="text" name="supplierProductName">
         </div>
         <div>
-            <br><label> Номер постачальника </label><br>
-            <input type="text" name="idSupplier">
-        </div>
-        <div>
-            <br><label> Назва постачальника </label><br>
-            <input type="text" name="supplierName">
+            <label> Постачальник </label><br>
+            <input type="text" name="choseSupName">
         </div>
 
         <div><br>
