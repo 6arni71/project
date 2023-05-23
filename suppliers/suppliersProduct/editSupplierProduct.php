@@ -22,13 +22,10 @@ $sN = $row['supplierName'];
 
 if (isset($_POST['SUB'])){
     $suppProductName = $_POST['supplierProductName'];
-    $id_supp = $_POST['id_supplier'];
     $suppName = $_POST['supplierName'];
-
 
     $upd = "UPDATE suppliers_product SET 
             supplierProductName = '$suppProductName', 
-            id_supplier = '$id_supp', 
             supplierName = '$suppName' 
             WHERE id_supplierProduct = $id";
 
@@ -54,10 +51,6 @@ if (isset($_POST['SUB'])){
         <div>
             <label> Назва продукту</label><br>
             <input type="text" name="supplierProductName" value=<?php echo $sPN; ?> >
-        </div>
-        <div>
-            <br><label> Номер постачальника </label><br>
-            <input type="text" name="id_supplier" value=<?php echo $sIS; ?> >
         </div>
         <div>
             <br><label> Назва постачальника </label><br>
