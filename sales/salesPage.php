@@ -17,10 +17,10 @@ if (!$conn)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Customers</title>
+    <title>ПРОДАНІ ТОВАРИ</title>
 </head>
 <body>
-<h1> ТАБЛИЦЯ ПРОДАНИЗ ТОВАРІВ </h1>
+<h1> ТАБЛИЦЯ ПРОДАНИХ ТОВАРІВ </h1>
 
 <a href="../index.html">на головну</a><br><br>
 
