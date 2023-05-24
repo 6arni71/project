@@ -10,17 +10,15 @@ if (!$conn)
     die("Connection failed: " . mysqli_connect_error());
 
 if (isset($_POST['SUB'])){
-    $id_buyer = $_POST['id_buyer'];
     $PIB = $_POST['PIB'];
     $buyerAddress = $_POST['address'];
-    $buyerPostAddress = $_POST['postAddress'];
+    $buyerPostIndex = $_POST['postIndex'];
     $buyerPhoneNumber = $_POST['phoneNumber'];
 
-    $ads = "INSERT INTO buyers VALUES (
-       '$id_buyer',     
+    $ads = "INSERT INTO buyers (PIB, address, postIndex, phoneNumber) VALUES (    
        '$PIB',
        '$buyerAddress',
-       '$buyerPostAddress',
+       '$buyerPostIndex',
        '$buyerPhoneNumber')";
 
     $result = mysqli_query($conn, $ads);
@@ -44,10 +42,6 @@ if (isset($_POST['SUB'])){
 <div>
     <form method="post">
         <div>
-            <label> Номер покупця </label><br>
-            <input type="text" name="id_buyer">
-        </div>
-        <div>
             <br><label> ПІБ</label><br>
             <input type="text" name="PIB">
         </div>
@@ -57,7 +51,7 @@ if (isset($_POST['SUB'])){
         </div>
         <div>
             <br><label> Поштовий код </label><br>
-            <input type="text" name="postAddress">
+            <input type="text" name="postIndex">
         </div>
         <div>
             <br><label> Телефонний номер </label><br>
