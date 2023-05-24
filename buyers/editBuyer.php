@@ -15,7 +15,7 @@ $sql = "SELECT * FROM buyers WHERE id_buyer = $id";
 
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($res);
-$PIB = $row['PIB'];
+$PIB = $row["PIB"];
 $bA = $row['address'];
 $bPA = $row['postIndex'];
 $bPN = $row['phoneNumber'];
@@ -79,7 +79,7 @@ if (isset($_POST['SUB'])){
 </div>
 
 <?php
-if($result)
+if($result && $res)
     header('location:buyersPage.php');
 else
     echo mysqli_error($conn);
