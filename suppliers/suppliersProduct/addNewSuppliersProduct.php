@@ -11,9 +11,9 @@ if (!$conn)
 
 if (isset($_POST['SUB'])){
     $supplierProductName = $_POST['supplierProductName'];
-    $choseSupName = $_POST['choseSupName'];
+    $choseSupProd = $_POST['selectSuppliers'];
     $asp = "INSERT INTO suppliers_product (supplierProductName, supplierName) VALUES
-        ('$supplierProductName','$choseSupName')";
+        ('$supplierProductName','$choseSupProd')";
 
     $result = mysqli_query($conn, $asp);
 }
@@ -34,24 +34,23 @@ if (isset($_POST['SUB'])){
 <a href="suppliersProductPage.php">назад</a><br><br>
 
 <div>
-    <form method="post" action="">
-        <div>
-            <label> Назва продукту </label><br>
-            <input type="text" name="supplierProductName">
-        </div>
-        <select name="supName">
-            <option name="">chose</option>
+    <form action="" method="post">
+        <label>назва </label>
+        <input type="text" name="supplierProductName" value="">
+        <select name="selectSuppliers">
+            <option value="">Select </option>
             <?php
-        $sfc = "SELECT supplierName FROM suppliers";
-        $res = mysqli_query($conn, $sfc);
-        if($res){
-        while ($row = mysqli_fetch_assoc($res)){
-        $SupName = $row['supplierName'];
-        echo '
-             <option value ="choseSupName">'.$SupName.'</option>
-            ';}}
-        ?>
+            $query ="SELECT supplierName FROM suppliers";
+            $res = $conn->query($query);
+            if($res->num_rows> 0){
+                while($optionData=$res->fetch_assoc()){
+                    $option =$optionData['supplierName'];
+                    ?>
+                        <option value="<?php echo $option; ?>" selected><?php echo $option; ?> </option>
+                        <?php
+                    }}?>
         </select>
+
         <div><br>
             <input type="submit" name="SUB" value="Додати">
             <input type="reset" value="Очистити">
