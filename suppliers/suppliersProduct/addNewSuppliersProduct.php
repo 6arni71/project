@@ -39,11 +39,19 @@ if (isset($_POST['SUB'])){
             <label> Назва продукту </label><br>
             <input type="text" name="supplierProductName">
         </div>
-        <div>
-            <label> Постачальник </label><br>
-            <input type="text" name="choseSupName">
-        </div>
-
+        <select name="supName">
+            <option name="">chose</option>
+            <?php
+        $sfc = "SELECT supplierName FROM suppliers";
+        $res = mysqli_query($conn, $sfc);
+        if($res){
+        while ($row = mysqli_fetch_assoc($res)){
+        $SupName = $row['supplierName'];
+        echo '
+             <option value ="choseSupName">'.$SupName.'</option>
+            ';}}
+        ?>
+        </select>
         <div><br>
             <input type="submit" name="SUB" value="Додати">
             <input type="reset" value="Очистити">
@@ -52,7 +60,7 @@ if (isset($_POST['SUB'])){
 </div>
 
 <?php
-    if($result)
+    if($result && $res)
         header('location:suppliersProductPage.php');
     else
         echo mysqli_error($conn);
